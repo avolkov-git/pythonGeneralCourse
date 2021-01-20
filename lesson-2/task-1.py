@@ -16,7 +16,7 @@ new_bytes = bytes('Some string'.encode("utf-8"))
 # Списки и прочее
 new_list = [new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes]
 new_tuple = (new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes)
-new_set: set[Union[int, float, complex, str, bool, None, bytes]] = {new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes}
+new_set = {new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes}
 new_dict = {'key_1': new_int, 'key_2': new_tuple, 'key_3': new_complex, 'key_4': new_string, 'key_5': new_bool,
             'key_6': new_none, 'key_7': new_bytes}
 
