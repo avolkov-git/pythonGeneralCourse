@@ -3,7 +3,6 @@
 # указать явно, в программе.
 
 # Простые и примитивные типы
-from typing import Set, Union
 
 new_int = 10
 new_float = 10.3
