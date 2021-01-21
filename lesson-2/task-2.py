@@ -19,13 +19,13 @@ while True:
     except ValueError:
         errMsg = 'Эта строка для того, чтобы не обрабатывать исключение'
 
-    if len(user_list) >= 2:
+    if len(user_list) < 2:
         input_list.extend(user_list)
-        break
-    else:
-        input_list.extend(user_list);
         print('Вы ввели слишком мало значений. Пожалуйста, укажите больше (новые значения будут добавлены к уже '
               'введенным')
+    else:
+        input_list.extend(user_list)
+        break
 
 print(f'Ваш список: {input_list}')
 
@@ -39,7 +39,7 @@ for index, this_value in enumerate(test_list):
             test_list[index + 1] = this_value
             test_list[index] = next_value
             skip = True
-        except:
+        except IndexError:
             break
 
     else:
@@ -63,8 +63,8 @@ index_counter = 1
 while True:
     if index_counter < len(test_list):
         this_value = test_list[index_counter]
-        prew_value = test_list[index_counter - 1]
-        test_list[index_counter] = prew_value
+        pre_value = test_list[index_counter - 1]
+        test_list[index_counter] = pre_value
         test_list[index_counter - 1] = this_value
         index_counter += 2
     else:
@@ -82,4 +82,3 @@ for list_element in range(0, len(test_list) - 1):
     else:
         continue
 print(test_list)
-1
