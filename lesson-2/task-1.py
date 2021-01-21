@@ -3,22 +3,41 @@
 элемента. Использовать функцию type() для проверки типа. Элементы списка можно не запрашивать у пользователя, а
 указать явно, в программе.
 """
+
+
+# Скрипт проверки типов данных
+def type_check(value, expect_value):
+    check_result = type(value) == expect_value
+    print(f'Результат проверки значения {value} на тип {expect_value}: {check_result}')
+
+
 # Простые и примитивные типы
 
 new_int = 10
+type_check(new_int, int)
 new_float = 10.3
+type_check(new_float, float)
 new_complex = complex(5, 6)
+type_check(new_complex, complex)
 new_string = '10.3'
+type_check(new_string, str)
 new_bool = True
+type_check(new_bool, bool)
 new_none = None
+type_check(new_none, None)
 new_bytes = bytes('Some string'.encode("utf-8"))
+type_check(new_bytes, bytes)
 
 # Списки и прочее
 new_list = [new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes]
+type_check(new_list, list)
 new_tuple = (new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes)
+type_check(new_tuple, tuple)
 new_set = {new_int, new_float, new_complex, new_string, new_bool, new_none, new_bytes}
+type_check(new_set, set)
 new_dict = {'key_1': new_int, 'key_2': new_tuple, 'key_3': new_complex, 'key_4': new_string, 'key_5': new_bool,
             'key_6': new_none, 'key_7': new_bytes}
+type_check(new_dict, dict)
 
 # Исключение
 try:
