@@ -12,7 +12,6 @@ def type_check(value, expect_value):
 
 
 # Простые и примитивные типы
-
 new_int = 10
 type_check(new_int, int)
 new_float = 10.3
