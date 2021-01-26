@@ -63,7 +63,7 @@ print(f'Список введенных товаров:{products}')
 # Формируем аналитику
 
 analytics = dict({})
-name_set= set()
+name_set = set()
 cost_set = set()
 count_set = set()
 unit_set = set()
