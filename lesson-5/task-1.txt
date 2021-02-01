@@ -1,4 +1,3 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean pharetra arcu quis ornare tincidunt.
-Ut et fermentum lectus. Aenean sit amet commodo metus. 
-Mauris porta, felis quis dignissim pulvinar, dolor tortor convallis purus, eu molestie justo ipsum sed mauris.
+Aenean pharetra arcu quis ornare tincidunt. Ut et fermentum lectus.
+Aenean sit amet commodo metus.
