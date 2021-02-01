@@ -1,3 +1,6 @@
+from math import factorial
+
+
 # Для задания №1 (Функция расчета заработной платы)
 def payroll_calculation(hours, rate):
     try:
@@ -31,3 +34,9 @@ def fact(n):
         # Конструкцию *= подсмотрел на стак оверфлоу
         iterator *= index
         yield iterator
+
+
+# Для задания №7 (Функция генератора факториала с использованием библиотеки math)
+def math_fact(n):
+    for index in range(1, n + 1):
+        yield factorial(index)
