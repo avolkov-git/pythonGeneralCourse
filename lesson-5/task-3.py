@@ -9,7 +9,6 @@ with open('task-3.txt', 'r', encoding='utf-8') as txt_file:
     salary_sum = 0
     lines_count = len(txt_file.readlines())
     txt_file.seek(0)
-    # Вопрос: почему, если я раскомментирую строку выше, перестанет работать лямбда?
 
     for txt_line in map(lambda line: line.rstrip('\n'), txt_file):
         spl_line = txt_line.split(',')
