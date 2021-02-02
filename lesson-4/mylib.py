@@ -2,9 +2,9 @@ from math import factorial
 
 
 # Для задания №1 (Функция расчета заработной платы)
-def payroll_calculation(hours, rate):
+def payroll_calculation(hours, rate, bonus):
     try:
-        return int(hours) * int(rate)
+        return (int(hours) * int(rate)) + int(bonus)
     except ValueError:
         print('Incorrect hours or rate value')
         return 0

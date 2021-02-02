@@ -5,7 +5,7 @@
 from sys import argv
 from mylib import payroll_calculation
 
-script, name, hours, rate = argv
+script, hours, rate, bonus = argv
 
-result = payroll_calculation(hours, rate)
-print(f'Employee {name} earned {result}')
+result = payroll_calculation(hours, rate, bonus)
+print(f'Salary: {result}')
