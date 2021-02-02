@@ -3,27 +3,21 @@
 
 from random import randint
 
-txt_file= open('task-5.txt', 'w', encoding='utf-8')
-random_nums = [randint(0, 100) for index in range(20)]
-print(random_nums)
+with open('task-5.txt', 'r+', encoding='utf-8') as txt_file:
+    random_nums = [randint(0, 100) for index in range(20)]
+    print(random_nums)
 
-# Записываем набор random_nums в файл txt_for_write
-print(*random_nums, file=txt_file, sep=' ')
+    # Записываем набор random_nums в файл txt_for_write
+    print(*random_nums, file=txt_file, sep=' ')
 
-# Закрываем файл
-txt_file.close()
+    # Перемещаемся в начало файла
+    txt_file.seek(0)
 
-# Открываем файл для чтения
-txt_file= open('task-5.txt', 'r', encoding='utf-8')
-line = txt_file.readline()
-splt_line = line.split()
+    line = txt_file.readline()
+    splt_line = line.split()
 
-numbers_sum = 0
-for number in splt_line:
-    numbers_sum += int(number)
+    numbers_sum = 0
+    for number in splt_line:
+        numbers_sum += int(number)
 
-print(f'Сумма чисел в файле: {numbers_sum}')
-
-txt_file.close()
-
-
+    print(f'Сумма чисел в файле: {numbers_sum}')
