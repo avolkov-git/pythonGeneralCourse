@@ -7,15 +7,13 @@ with open('task-3.txt', 'r', encoding='utf-8') as txt_file:
     salary_less_20k = []
     # Переменная для подсчета средней заработной платы
     salary_sum = 0
-    # Количество человек в списке
-    lines_count = 0;
-    # lines_count = len(txt_file.readlines())
+    lines_count = len(txt_file.readlines())
+    txt_file.seek(0)
     # Вопрос: почему, если я раскомментирую строку выше, перестанет работать лямбда?
 
     for txt_line in map(lambda line: line.rstrip('\n'), txt_file):
         spl_line = txt_line.split(',')
         salary_sum += int(spl_line[1])
-        lines_count += 1
 
         if int(spl_line[1]) < 20000:
             salary_less_20k.append(spl_line[0])
