@@ -15,9 +15,9 @@ class TrafficLight:
     ]
     __color = 0
 
-    def running(self, start_color, __iterations_number):
+    def running(self, __iterations_number):
         print('Включаем светофор...')
-        self.__switch_color(start_color, __iterations_number)
+        self.__switch_color(self.__color, __iterations_number)
 
     def __shutdown_light(self):
         print('Выключаем светофор...')
@@ -43,4 +43,4 @@ while not iterations_number:
         print('Вы ввели не число')
 
 new_traffic_light = TrafficLight()
-new_traffic_light.running(0, iterations_number)
+new_traffic_light.running(iterations_number)
