@@ -9,6 +9,7 @@
 
 from random import randint
 
+
 class Car:
     speed = 0
 
