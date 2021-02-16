@@ -4,7 +4,19 @@
 # уникальные для каждого типа оргтехники.
 
 class Warehouse:
-    pass
+    def __init__(self, address):
+        self.address = address
+        self.equipment_items = []
+        self.equipment_count = {'printers': 0, 'scanners': 0, 'xerox': 0}
+
+    def _add_equipment_(self, equipment):
+        self.equipment_items.append(equipment)
+        if type(equipment) == Printer:
+            self.equipment_count['printers'] += 1
+        elif type(equipment) == Scanner:
+            self.equipment_count['scanners'] += 1
+        elif type(equipment) == Xerox:
+            self.equipment_count['xerox'] += 1
 
 
 class OfficeEquipment:
@@ -15,9 +27,12 @@ class OfficeEquipment:
     def __init__(self, name, manufacturer, serial_prefix=''):
         self.name = name
         self.manufacturer = manufacturer
-        self.serial_num = serial_prefix + str(OfficeEquipment.global_serial_num)
+        self.serial_num = f'{serial_prefix}-{OfficeEquipment.global_serial_num}'
 
         OfficeEquipment.global_serial_num += 1
+
+    def __str__(self):
+        return f'{self.name} ({self.serial_num})'
 
 
 class Printer(OfficeEquipment):
