@@ -2,22 +2,30 @@
 # определенное подразделение компании. Для хранения данных о наименовании и количестве единиц оргтехники, а также других
 # данных, можно использовать любую подходящую структуру, например словарь.
 
-import task_4
+from task_4 import Printer, Scanner, Xerox, Warehouse
 from random import randint
 
 
 def admission(warehouse, equipment):
-    warehouse._add_equipment_(equipment)
+    warehouse.add_item(equipment)
 
 
 def division_transfer():
     pass
 
 
-general_warehouse = task_4.Warehouse('Нижний Новгород')
+general_warehouse = Warehouse('Нижний Новгород')
 
 for index in range(10):
-    printer = task_4.Printer(f'Printer {index}', 'Intel LLC.', randint(100, 200))
+    printer = Printer(f'Printer {index}', 'Intel LLC.', randint(100, 200))
     admission(general_warehouse, printer)
 
-print(general_warehouse.equipment_items, general_warehouse.equipment_count)
+for index in range(5):
+    scanner = Scanner(f'Scanner {index}', 'Intel LLC.', randint(100, 200))
+    admission(general_warehouse, scanner)
+
+for index in range(8):
+    xerox = Xerox(f'Xerox {index}', 'Intel LLC.', randint(100, 200))
+    admission(general_warehouse, xerox)
+
+print(general_warehouse.equipment_count)

@@ -9,7 +9,7 @@ class Warehouse:
         self.equipment_items = []
         self.equipment_count = {'printers': 0, 'scanners': 0, 'xerox': 0}
 
-    def _add_equipment_(self, equipment):
+    def add_item(self, equipment):
         self.equipment_items.append(equipment)
         if type(equipment) == Printer:
             self.equipment_count['printers'] += 1
@@ -17,6 +17,26 @@ class Warehouse:
             self.equipment_count['scanners'] += 1
         elif type(equipment) == Xerox:
             self.equipment_count['xerox'] += 1
+
+    def item_transfer(self, division, equipment):
+        try:
+            self.equipment_items.remove(equipment)
+            if type(equipment) == Printer:
+                self.equipment_count['printers'] -= 1
+            elif type(equipment) == Scanner:
+                self.equipment_count['scanners'] -= 1
+            elif type(equipment) == Xerox:
+                self.equipment_count['xerox'] -= 1
+        except ValueError:
+            pass
+
+    def __str__(self):
+        return f'Склад {self.address}'
+
+class Division:
+    def __init__(self):
+        self.equipment_items = []
+        self.equipment_count = {'printers': 0, 'scanners': 0, 'xerox': 0}
 
 
 class OfficeEquipment:
@@ -53,7 +73,3 @@ class Xerox(OfficeEquipment):
         self.max_copy = max_copy
         super().__init__(name, manufacturer, 'X')
 
-
-printer = Printer('Print', 'Xerox', 500)
-scanner = Scanner('Scanner', 'Xerox', True)
-xerox = Xerox('Xerox', 'Xerox', 50)
