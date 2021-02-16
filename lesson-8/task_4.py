@@ -11,15 +11,11 @@ class Warehouse:
 
     def add_item(self, equipment):
         self.equipment_items.append(equipment)
-        if type(equipment) == Printer:
-            self.equipment_count['printers'] += 1
-        elif type(equipment) == Scanner:
-            self.equipment_count['scanners'] += 1
-        elif type(equipment) == Xerox:
-            self.equipment_count['xerox'] += 1
+        Warehouse.add_items_to_results(self, equipment)
 
     def item_transfer(self, division, equipment):
         try:
+            # Удаляем оборудование со склада
             self.equipment_items.remove(equipment)
             if type(equipment) == Printer:
                 self.equipment_count['printers'] -= 1
@@ -27,11 +23,29 @@ class Warehouse:
                 self.equipment_count['scanners'] -= 1
             elif type(equipment) == Xerox:
                 self.equipment_count['xerox'] -= 1
-        except ValueError:
-            pass
 
-    def __str__(self):
+            # Перемещаем оборудование в подразделение
+            division.equipment_items.append(equipment)
+            Warehouse.add_items_to_results(division, equipment)
+        except ValueError:
+            print(f'Оборудование {equipment} не найдено на складе {self}')
+
+    @classmethod
+    def add_items_to_results(object, equipment):
+        if type(equipment) == Printer:
+            object.equipment_count['printers'] += 1
+        elif type(equipment) == Scanner:
+            object.equipment_count['scanners'] += 1
+        elif type(equipment) == Xerox:
+            object.equipment_count['xerox'] += 1
+
+    def __add_items_to_results__(self, equipment):
+        pass
+
+
+def __str__(self):
         return f'Склад {self.address}'
+
 
 class Division:
     def __init__(self):
@@ -72,4 +86,3 @@ class Xerox(OfficeEquipment):
     def __init__(self, name, manufacturer, max_copy: int):
         self.max_copy = max_copy
         super().__init__(name, manufacturer, 'X')
-
