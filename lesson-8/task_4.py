@@ -20,6 +20,8 @@ class Warehouse:
             obj.equipment_count['scanners'] += 1
         elif type(equipment) == Xerox:
             obj.equipment_count['xerox'] += 1
+        else:
+            raise ValueError('Значение не является объектом OfficeEquipment')
 
     def add_item(self, equipment):
         self.equipment_items.append(equipment)
@@ -28,13 +30,16 @@ class Warehouse:
     def item_transfer(self, division, equipment):
         try:
             # Удаляем оборудование со склада
-            self.equipment_items.remove(equipment)
             if type(equipment) == Printer:
                 self.equipment_count['printers'] -= 1
             elif type(equipment) == Scanner:
                 self.equipment_count['scanners'] -= 1
             elif type(equipment) == Xerox:
                 self.equipment_count['xerox'] -= 1
+            else:
+                raise ValueError('Значение не является объектом OfficeEquipment')
+
+            self.equipment_items.remove(equipment)
 
             # Перемещаем оборудование в подразделение
             division.equipment_items.append(equipment)
