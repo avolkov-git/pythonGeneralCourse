@@ -9,6 +9,18 @@ class Warehouse:
         self.equipment_items = []
         self.equipment_count = {'printers': 0, 'scanners': 0, 'xerox': 0}
 
+    def __str__(self):
+        return f'Склад {self.address}'
+
+    @classmethod
+    def add_items_to_results(cls, obj, equipment):
+        if type(equipment) == Printer:
+            obj.equipment_count['printers'] += 1
+        elif type(equipment) == Scanner:
+            obj.equipment_count['scanners'] += 1
+        elif type(equipment) == Xerox:
+            obj.equipment_count['xerox'] += 1
+
     def add_item(self, equipment):
         self.equipment_items.append(equipment)
         Warehouse.add_items_to_results(self, equipment)
@@ -30,27 +42,23 @@ class Warehouse:
         except ValueError:
             print(f'Оборудование {equipment} не найдено на складе {self}')
 
-    @classmethod
-    def add_items_to_results(object, equipment):
-        if type(equipment) == Printer:
-            object.equipment_count['printers'] += 1
-        elif type(equipment) == Scanner:
-            object.equipment_count['scanners'] += 1
-        elif type(equipment) == Xerox:
-            object.equipment_count['xerox'] += 1
-
-    def __add_items_to_results__(self, equipment):
-        pass
-
-
-def __str__(self):
-        return f'Склад {self.address}'
+    def print_items_list(self):
+        for item in self.equipment_items:
+            print(item)
 
 
 class Division:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.equipment_items = []
         self.equipment_count = {'printers': 0, 'scanners': 0, 'xerox': 0}
+
+    def __str__(self):
+        return self.name
+
+    def print_items_list(self):
+        for item in self.equipment_items:
+            print(item)
 
 
 class OfficeEquipment:
